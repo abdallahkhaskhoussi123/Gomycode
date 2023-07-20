@@ -1,0 +1,78 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMODA8piKdQ3t0qlkb29pDA",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/abdallahkhaskhoussi123/Gomycode/blob/main/python%20numpy\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 31,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-PI30ufgg3ES",
+        "outputId": "8973050c-51c7-4a07-baa9-f18c2fbea505"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Enter the number of students: 1\n",
+            "Enter the number of subjects: 1\n",
+            "\n",
+            "Enter the marks for student 1:\n",
+            "Subject 1: 90\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "num_students = int(input(\"Enter the number of students: \"))\n",
+        "num_subjects = int(input(\"Enter the number of subjects: \"))\n",
+        "marks_array = np.zeros((num_students, num_subjects))\n",
+        "for i in range(num_students):\n",
+        "    print(f\"\\nEnter the marks for student {i + 1}:\")\n",
+        "    for j in range(num_subjects):\n",
+        "        marks_array[i, j] = float(input(f\"Subject {j + 1}: \"))\n",
+        "total_marks = np.sum(marks_array, axis=1)\n",
+        "def calculate_grade(percentage):\n",
+        "    if percentage >= 90:\n",
+        "        return \"A+\"\n",
+        "    elif percentage >= 80:\n",
+        "        return \"A\"\n",
+        "    elif percentage >= 70:\n",
+        "        return \"B+\"\n",
+        "    elif percentage >= 60:\n",
+        "        return \"B\"\n",
+        "    elif percentage >= 50:\n",
+        "        return \"C\"\n",
+        "    else:\n",
+        "        return \"F\"\n"
+      ]
+    }
+  ]
+}
