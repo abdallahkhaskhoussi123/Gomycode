@@ -1,0 +1,123 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOufdEMW8i3H+0YnDIciz1w",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/abdallahkhaskhoussi123/Gomycode/blob/main/pandas%20checkpoint\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "y9IhcuLlzXzN",
+        "outputId": "018116a1-f400-429f-e083-1355770169e1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "First three rows:\n",
+            "        name  score  attempts qualify\n",
+            "a  Anastasia   12.5         1     yes\n",
+            "b       Dima    9.0         3      no\n",
+            "c  Katherine   16.5         2     yes\n",
+            "\n",
+            "Name and Score columns:\n",
+            "        name  score\n",
+            "a  Anastasia   12.5\n",
+            "b       Dima    9.0\n",
+            "c  Katherine   16.5\n",
+            "e      Emily    9.0\n",
+            "f    Michael   20.0\n",
+            "g    Matthew   14.5\n",
+            "i      Kevin    8.0\n",
+            "j      Jonas   19.0\n",
+            "\n",
+            "Final DataFrame:\n",
+            "        name  score qualify  Success\n",
+            "a  Anastasia   12.5     yes        1\n",
+            "b       Dima    9.0      no        0\n",
+            "c  Katherine   16.5     yes        1\n",
+            "e      Emily    9.0      no        0\n",
+            "f    Michael   20.0     yes        1\n",
+            "g    Matthew   14.5     yes        1\n",
+            "i      Kevin    8.0      no        0\n",
+            "j      Jonas   19.0     yes        1\n",
+            "k     Suresh   15.5     yes        1\n"
+          ]
+        },
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "<ipython-input-4-e94596f1482a>:27: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.\n",
+            "  df = df.append(new_row)\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "exam_data = {\n",
+        "    'name': ['Anastasia', 'Dima', 'Katherine', 'James', 'Emily', 'Michael', 'Matthew', 'Laura', 'Kevin', 'Jonas'],\n",
+        "    'score': [12.5, 9, 16.5, np.nan, 9, 20, 14.5, np.nan, 8, 19],\n",
+        "    'attempts': [1, 3, 2, 3, 2, 3, 1, 1, 2, 1],\n",
+        "    'qualify': ['yes', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'no', 'no', 'yes']\n",
+        "}\n",
+        "\n",
+        "labels = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']\n",
+        "\n",
+        "df = pd.DataFrame(exam_data, index=labels)\n",
+        "\n",
+        "print(\"First three rows:\")\n",
+        "print(df.head(3))\n",
+        "print()\n",
+        "\n",
+        "df.dropna(inplace=True)\n",
+        "\n",
+        "name_score_df = df[['name', 'score']]\n",
+        "print(\"Name and Score columns:\")\n",
+        "print(name_score_df)\n",
+        "print()\n",
+        "\n",
+        "new_row = pd.DataFrame({'name': ['Suresh'], 'score': [15.5], 'attempts': [1], 'qualify': ['yes']}, index=['k'])\n",
+        "df = df.append(new_row)\n",
+        "\n",
+        "df.drop('attempts', axis=1, inplace=True)\n",
+        "\n",
+        "df['Success'] = df['score'].apply(lambda x: 1 if x > 10 else 0)\n",
+        "\n",
+        "df.to_csv('my_data.csv')\n",
+        "\n",
+        "print(\"Final DataFrame:\")\n",
+        "print(df)"
+      ]
+    }
+  ]
+}
