@@ -1,0 +1,68 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOrtlMVv+lXg1Bn9OMfscYl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/abdallahkhaskhoussi123/Gomycode/blob/main/File%20Handling\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 235
+        },
+        "id": "Mu7r3WhKtCmj",
+        "outputId": "e0262db2-125d-46fd-f49f-0a802f180738"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "ignored",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m<ipython-input-1-b19fc8d5e698>\u001b[0m in \u001b[0;36m<cell line: 2>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mnlist\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m14\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m46\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m43\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m27\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m57\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m41\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m45\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m21\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m70\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mbubbleSort\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnlist\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mbubbleSort\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnlist\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m     \u001b[0;32mfor\u001b[0m \u001b[0mpassnum\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnlist\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m-\u001b[0m\u001b[0;36m1\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m         \u001b[0;32mfor\u001b[0m \u001b[0mi\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mrange\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mpassnum\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'bubbleSort' is not defined"
+          ]
+        }
+      ],
+      "source": [
+        "nlist = [14,46,43,27,57,41,45,21,70]\n",
+        "bubbleSort(nlist)\n",
+        "def bubbleSort(nlist):\n",
+        "    for passnum in range(len(nlist)-1,0,-1):\n",
+        "        for i in range(passnum):\n",
+        "            if nlist[i]>nlist[i+1]:\n",
+        "                temp = nlist[i]\n",
+        "                nlist[i] = nlist[i+1]\n",
+        "                nlist[i+1] = temp\n",
+        "    return nlis\n",
+        "\n"
+      ]
+    }
+  ]
+}
